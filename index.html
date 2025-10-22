@@ -3,35 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FamTime — Prototipo</title>
+<title>FamTime — Prototipo Verde</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#C77DFF">
+<meta name="theme-color" content="#4CAF50">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <style>
-:root{--bg:#fff7fb;--surface:#ffffff;--ink:#2c1b2e;--muted:#6a596f;--line:#ead9ee;--brand:#c77dff;--accent:#ffb3b3;--safe:env(safe-area-inset-bottom)}
+:root{
+  --bg:#E8F5E9; --surface:#ffffff; --ink:#1B5E20; --muted:#2E7D32;
+  --line:#C8E6C9; --brand:#4CAF50; --accent:#A5D6A7;
+  --safe:env(safe-area-inset-bottom);
+}
 *{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:linear-gradient(180deg,#fff7fb,#ffeef8 60%,#fff7fb);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Quicksand,Arial}
+body{margin:0;background:linear-gradient(180deg,var(--bg),#F1F8E9 60%,var(--bg));color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Quicksand,Arial}
 .container{max-width:480px;margin:0 auto;padding:16px 14px calc(96px + var(--safe))}
 h1{font-size:22px;margin:6px 0}h2{font-size:18px;margin:8px 0}p{margin:6px 0;color:var(--muted)}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 6px 24px rgba(199,125,255,.12)}
-.pill{display:inline-flex;align-items:center;gap:8px;background:#f6e7ff;color:#5d2d8a;padding:8px 12px;border-radius:999px;font-weight:600}
-.btn{width:100%;padding:14px;border-radius:14px;border:1px solid #d6c2db;background:#f1e5f7;color:#5d2d8a;font-size:16px;cursor:pointer}
-.btn.primary{background:var(--brand);border-color:#a866e0;color:#fff}.btn.accent{background:#ffd8e6;border-color:#ffc2d8;color:#5a2a3f}.btn.muted{background:#f4ecfb;border-color:#ead9ee}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 6px 24px rgba(76,175,80,.12)}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#DCEDC8;color:#2E7D32;padding:8px 12px;border-radius:999px;font-weight:600}
+.btn{width:100%;padding:14px;border-radius:14px;border:1px solid #8BC34A;background:#DCEDC8;color:#1B5E20;font-size:16px;cursor:pointer}
+.btn.primary{background:var(--brand);border-color:#388E3C;color:#fff}
+.btn.accent{background:#AED581;border-color:#9CCC65;color:#1B5E20}
+.btn.muted{background:#E8F5E9;border-color:#C8E6C9;color:#2E7D32}
 .btn:active{transform:scale(.99)}
-.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{padding:14px;border-radius:16px;background:#fff;border:1px solid var(--line);text-align:center;cursor:pointer}.tile.active{outline:2px solid var(--brand)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{padding:14px;border-radius:16px;background:#fff;border:1px solid var(--line);text-align:center;cursor:pointer}
+.tile.active{outline:2px solid var(--brand)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .recipe{background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;display:flex;gap:10px;align-items:center}
-.recipe-emoji{font-size:26px}.recipe-meta{font-size:12px;color:#806d86}
+.recipe-emoji{font-size:26px}
+.recipe-meta{font-size:12px;color:#2E7D32}
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px}
-.cal div{padding:10px;border-radius:10px;text-align:center;border:1px solid #f1e6f6;background:#fbf6ff}
-.cal .today{background:#ffd8e6;border-color:#ffc2d8;font-weight:700}
+.cal div{padding:10px;border-radius:10px;text-align:center;border:1px solid #E0F2F1;background:#F1F8E9}
+.cal .today{background:#C8E6C9;border-color:#A5D6A7;font-weight:700}
 .tabbar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:8px 12px calc(8px + var(--safe))}
-.tab{border:none;background:#f4ecfb;color:#5a2a7a;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:12px}
-.tab.active{background:var(--brand);border-color:#a866e0;color:#fff}
+.tab{border:none;background:#E8F5E9;color:#2E7D32;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:12px}
+.tab.active{background:var(--brand);border-color:#388E3C;color:#fff}
 .hide{display:none!important}
 .list .row{display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;margin:8px 0}
-.badge{padding:4px 8px;border-radius:999px;background:#f6e7ff;color:#5d2d8a;font-size:12px}
-.progress{height:10px;background:#f6e7ff;border-radius:999px;overflow:hidden}.progress>div{height:100%;background:#a866e0;width:60%}
+.badge{padding:4px 8px;border-radius:999px;background:#DCEDC8;color:#2E7D32;font-size:12px}
+.progress{height:10px;background:#E8F5E9;border-radius:999px;overflow:hidden}
+.progress>div{height:100%;background:#66BB6A;width:60%}
 input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#fff;font:inherit}
 </style>
 </head>
@@ -45,13 +55,13 @@ input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px soli
       <div class="row"><span>Revisar cuaderno</span><span class="badge">07:30</span></div>
       <div class="row"><span>Llevar uniforme deportivo</span><span class="badge">08:00</span></div>
     </div>
-    <div class="card" style="margin:12px 0;background:#fff7ee;border-color:#ffe0bd">
-      <b>🍞 Receta del día</b>
-      <div class="list"><div class="row"><span>Sándwich nutritivo</span><button class="btn primary" style="width:auto" onclick="openRecipe('A')">Ver</button></div></div>
+    <div class="card" style="margin:12px 0;background:#FFFDE7;border-color:#FFF9C4">
+      <b>🥗 Receta del día</b>
+      <div class="list"><div class="row"><span>Ensalada de pollo</span><button class="btn primary" style="width:auto" onclick="openRecipe('A')">Ver</button></div></div>
     </div>
-    <div class="card" style="background:#f0f8ff;border-color:#d9eaff">
+    <div class="card" style="background:#E3F2FD;border-color:#BBDEFB">
       <b>🌟 Reto familiar</b>
-      <p>Cenar sin pantallas</p>
+      <p>5 porciones de frutas/verduras</p>
       <div class="progress"><div></div></div>
       <small>3 de 5 días</small>
     </div>
@@ -92,15 +102,15 @@ input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px soli
 
   <section id="comunidad" class="card hide">
     <div class="pill">💬 Comunidad de padres</div>
-    <div class="card"><b>María T</b> · <small>Hace 2h</small><p>¿Recetas rápidas para mañana?</p><small>❤️ 12</small></div>
-    <div class="card"><b>Carlos M</b> · <small>Hace 5h</small><p>Preparar loncheras la noche anterior me salva.</p><small>❤️ 24</small></div>
+    <div class="card"><b>María T</b> · <small>Hace 2h</small><p>¿Recetas verdes favoritas?</p><small>❤️ 12</small></div>
+    <div class="card"><b>Carlos M</b> · <small>Hace 5h</small><p>Preparo snacks el domingo: palitos de zanahoria y hummus.</p><small>❤️ 24</small></div>
   </section>
 
   <section id="perfil" class="card hide">
     <div class="pill">👤 Perfil</div>
     <label>Alergias</label><input placeholder="Lactosa, Gluten">
     <label>Presupuesto semanal (S/)</label><input type="number" value="150">
-    <label>Preferencias</label><input placeholder="Pollo, Pavo, Pescado">
+    <label>Preferencias</label><input placeholder="Brócoli, Palta, Pavo">
     <button class="btn primary" onclick="alert('Preferencias guardadas (demo)')">Guardar</button>
   </section>
 </div>
@@ -117,9 +127,9 @@ input,select,textarea{width:100%;padding:12px;border-radius:12px;border:1px soli
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js')); }
 
 const RECETAS=[
- {id:'A',emoji:'🥪',nombre:'Sándwich nutritivo',tag:'lonchera',min:10,ing:['2 panes integrales','100 g pollo','Lechuga','Tomate','1 huevo'],pas:['Cocina el huevo','Asa el pollo','Corta verduras','Arma el sándwich','Envuelve']},
+ {id:'A',emoji:'🥗',nombre:'Ensalada de pollo',tag:'lonchera',min:12,ing:['Pechuga cocida','Lechuga','Palta','Tomate','Aceite de oliva'],pas:['Corta todo','Mezcla','Aliña y sirve']},
  {id:'B',emoji:'🥣',nombre:'Avena con frutas',tag:'desayuno',min:5,ing:['Avena','Leche/alternativa','Fresas','Banano'],pas:['Calienta','Mezcla','Sirve']},
- {id:'C',emoji:'🌯',nombre:'Wrap de pollo',tag:'lonchera',min:15,ing:['Tortilla integral','Pollo','Lechuga','Yogur SL'],pas:['Plancha el pollo','Rellena','Enrolla']},
+ {id:'C',emoji:'🌯',nombre:'Wrap integral',tag:'lonchera',min:15,ing:['Tortilla integral','Pollo','Zanahoria','Yogur SL'],pas:['Plancha el pollo','Rellena','Enrolla']},
  {id:'D',emoji:'🥤',nombre:'Smoothie verde',tag:'merienda',min:5,ing:['Espinaca','Manzana','Yogur SL'],pas:['Licúa','Sirve']}
 ];
 
@@ -136,18 +146,17 @@ go('home');
 function renderCalendar(){
   const grid=document.getElementById('calGrid'); grid.innerHTML='';
   for(let i=1;i<=35;i++){
-    const cell=document.createElement('div');
-    cell.textContent=i<=31? i : '';
-    if(i===20) cell.className='today';
-    grid.appendChild(cell);
+    const c=document.createElement('div');
+    c.textContent = i<=31? i : '';
+    if(i===20) c.className='today';
+    grid.appendChild(c);
   }
 }
 
 function renderRecipes(filter='todas'){
   const list=document.getElementById('recipeList'); list.innerHTML='';
   RECETAS.filter(r => filter==='todas' || r.tag===filter).forEach(r=>{
-    const div=document.createElement('div');
-    div.className='recipe';
+    const div=document.createElement('div'); div.className='recipe';
     div.innerHTML = '<div class="recipe-emoji">'+r.emoji+'</div>' +
       '<div style="flex:1"><b>'+r.nombre+'</b><div class="recipe-meta">'+r.tag+' • '+r.min+' min</div></div>' +
       '<button class="btn primary" style="width:auto">Ver</button>';

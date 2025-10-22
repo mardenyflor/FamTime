@@ -3,8 +3,8 @@
   "short_name": "FamTime",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#FFF7FB",
-  "theme_color": "#C77DFF",
+  "background_color": "#E8F5E9",
+  "theme_color": "#4CAF50",
   "icons": [
     {
       "src": "icons/icon-192.png",
